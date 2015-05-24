@@ -23,9 +23,8 @@ mergedSubject <- rbind(trainSubject, testSubject)
 ##Read in the features table
 features <- read.table("features.txt")
 
-##Subset only the mean and the std value positions. We need to indicate the () after "mean" to avoid accidentally
-##including "meanFreq" values
-means<-subset(subset=grepl(".*mean\\(\\).*", features$V2), features)
+##Subset only the mean and the std value positions.
+means<-subset(subset=grepl(".*mean.*", features$V2), features)
 stds<-subset(subset=grepl(".*std.*", features$V2), features)
 
 ##Merge the mean and std set with rbind() to combine rows
